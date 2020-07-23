@@ -27,13 +27,13 @@ font xft:GohuFont 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_run -fn "GohuFont" -nb '#D6CEC8' -sf '#45373C' -sb '#4F99D3' -nf '#45373C'
+bindsym $mod+d exec --no-startup-id dmenu_run -fn "GohuFont" -nb '#D6CEC8' -sf '#45373C' -sb '#66a3ff' -nf '#45373C'
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -65,7 +65,7 @@ bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart du
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
+#bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 bindsym $mod+b exec surf https://translate.google.com/
@@ -274,7 +274,7 @@ mode "resize" {
 # Lock screen
 bindsym $mod+9 exec --no-startup-id blurlock
 
-bindsym XF86AudioPlay exec playerctl --player=spotify play-pause
+bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
@@ -282,7 +282,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Autostart applications
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always --no-startup-id feh --image-bg "#cce0ff" --bg-center ~/Изображения/titian-vecellio-khristos-i-simon-kirineiskii-1547-krest.jpg
+exec_always --no-startup-id feh --image-bg "#D6C0C0" --bg-center ~/Загрузки/Telegram\ Desktop/photo_.jpg
 exec_always picom --config ~/.config/picom.conf -b &
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
@@ -300,7 +300,8 @@ exec_always --no-startup-id ~/.i3/polybar.sh
 #exec_always ~/nodejs/weather.sh
 #exec_always ~/myscripts/mousedpi.sh
 exec xbacklight -set 50
-exec ~/.i3/load_layout.sh
+exec ~/.i3/load_layout_1.sh
+exec ~/.i3/load_layout_2.sh
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -365,8 +366,8 @@ set_from_resource $term_color15    color15
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
 
-#set $bg-color            #66a3ff
-set $bg-color            #4F99D3
+set $bg-color            #66a3ff
+#set $bg-color            #4F99D3
 set $inactive-bg-color   #BDBABC
 set $text-color          #45373c
 set $inactive-text-color #7E8584
