@@ -18,13 +18,16 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #D6CEC8
+;background = #050505
+background = #E7E5EB
+background-center = #AFAFD7
+;background = #bbbbbb
 background-bottom = #FFF0E1
 ;background-alt = #C2B6A1
 background-alt = #616161
 ;foreground = ${xrdb:color7:#222}
-;foreground = #45373C
-foreground = #45373C
+;foreground = #f0f0f0
+foreground = #073642
 foreground-alt = #7E8584
 primary = #EAC06E
 secondary = #be100e
@@ -42,7 +45,7 @@ black =   #B3E1D8D8
 [bar/example1]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 19
+height = 17
 offset-x = 0%
 offset-y = 0%
 radius = 6.0
@@ -88,10 +91,10 @@ height = 19
 offset-x = 0%
 offset-y = 0%
 radius = 0.0
-fixed-center = true
+fixed-center = false
 bottom = false
 
-background = ${colors.background}
+background = ${colors.background-center}
 foreground = ${colors.foreground}
 
 line-size = 2
@@ -103,28 +106,31 @@ line-color = #fff
 ;border-top-size = 2
 border-color = #0000ffFF
 
-padding-left = 1
-padding-right = 1
+padding-left = 0
+padding-right = 0
 
-module-margin-left = 1
+module-margin-left = 0
 module-margin-right = 0
 
-font-0 = gohufont-11:size=11:weight=medium;2
-font-1 = Hack NF:size=15:weight=regular;3
-font-2 = Hack NF:size=10:weight=bold;3
-font-3 = Hack NF:size=12:weight=bold;3
-font-4 = Hack NF:size=16:weight=bold;5
-font-5 = Font Awesome 5 Brands:pixelsize=10;2
-font-6 = Font Awesome 5 Free Solid:pixelsize=8;2
-font-7 = Font Awesome 5 Free Solid:pixelsize=7;2
+font-0 = FantasqueSansMono Nerd Font Mono:size=13;2
+;font-0 = PxPlus ToshibaSat 8x14:size=14;2
+;font-0 = ibm3270:size=14;2
+;font-0 = gohufont:size=14:weight=medium;2
+font-1 = Hack NF:size=16:weight=regular;3
+font-2 = Hack NF:size=12:weight=bold;3
+font-3 = Hack NF:size=14:weight=bold;3
+font-4 = Hack NF:size=18:weight=bold;5
 
-modules-left = date temperature filesystem battery xbacklight crypto ethetmine weather xkeyboard i3
-modules-center =
-modules-right = spotify-prev spotify-play-pause spotify-next spotify
+modules-left = left0 temperature left0 filesystem left0 cpu left0 battery left0 [alsa] xbacklight left0 crypto left0 weather left0 xkeyboard i3
+modules-center = xwindow
+;modules-right = spotify-prev spotify-play-pause spotify-next spotify
+modules-right = tmr right1 date
 
 tray-position = left
 tray-padding = 10
-tray-background = #66a3ff 
+tray-background = ${colors.background-center}
+;tray-background = #285577
+;tray-background = #0997b3
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -140,7 +146,14 @@ tray-background = #66a3ff
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-[module/ethetmine]
+[module/tmr]
+type = custom/ipc
+format-prefix = "%{T2} %{T-}"
+hook-0 = echo "00m00s"
+hook-1 = cat ~/myscripts/tmr/timer
+initial = 1
+
+[module/ethermine]
 type = custom/script
 interval = 600
 exec = /home/gamabunta/myscripts/ethermine.sh
@@ -150,13 +163,15 @@ format-prefix-foreground = #009933
 [module/crypto]
 type = custom/script
 interval = 60
-exec = /home/gamabunta/myscripts/btcprice.sh
+exec = /home/gamabunta/.config/polybar/scripts/ticker-crypto.sh
 format-prefix = "%{T6}%{T-} "
+format-background = ${colors.background}
 
 [module/weather]
 type = custom/script
 interval = 60
 exec = /home/gamabunta/nodejs/printweather.sh
+format-background = ${colors.background}
 
 [module/spotify]
 type = custom/script
@@ -187,8 +202,8 @@ click-left = playerctl -p spotify next
 
 [module/left0]
 type = custom/text
-content-background = ${colors.bluew}
-content-foreground = ${colors.bluew}
+content-background = ${colors.background}
+content-foreground = ${colors.background}
 content = "%{T3}%{T-}"
 content-font = 2
 label-padding = 0
@@ -196,8 +211,8 @@ content-margin-right = 2
 
 [module/right1]
 type = custom/text
-content-background = ${colors.bluew}
-content-foreground = ${colors.green}
+content-background = ${colors.background-center}
+content-foreground = ${colors.background-center}
 content = ""
 content-font = 2
 label-padding = 0
@@ -295,7 +310,8 @@ content-margin-right = 2
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title:0:40:...%
+;label-background = #fff
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -381,6 +397,7 @@ label-visible-padding = ${self.label-focused-padding}
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon%
 label-urgent-foreground = ${colors.alert}
+label-urgent-background = ${colors.background}
 label-urgent-padding = 1
 
 ; Separator in between workspaces
@@ -446,7 +463,7 @@ format-prefix-foreground = ${colors.foreground}
 format-prefix-background = ${colors.background}
 ;format-underline = #f90000
 label = %percentage:2%
-label-background = ${colors.bluew}
+label-background = ${colors.background}
 
 [module/memory]
 type = internal/memory
@@ -501,9 +518,9 @@ type = internal/date
 interval = 1
 
 date =
-date-alt = " %d-%m-%Y"
+date-alt = "  %d-%m-%Y %u %H:%M "
 
-time = "%u %H:%M"
+time = "  %d-%m-%Y %u %H:%M "
 time-alt = 
 
 format-prefix =   
@@ -512,7 +529,9 @@ format-prefix-background = ${colors.bluew}
 ;format-underline = #0a6cf5
 
 label = %date%%time%
+;label-background = #373d48
 label-background = ${colors.background}
+;label-foreground = #00000b
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -551,36 +570,44 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 [module/alsa]
 type = internal/alsa
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%
 label-volume-foreground = ${root.foreground}
+label-volume-background = ${colors.background}
 
-format-muted-prefix = " "
+format-muted-prefix =
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+format-muted-background = ${colors.background}
+label-muted = 
+
+ramp-volume-background = ${colors.background}
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-0 = #66a3ff
+bar-volume-foreground-1 = #66a3ff
+bar-volume-foreground-2 = #66a3ff
+bar-volume-foreground-3 = #66a3ff
+bar-volume-foreground-4 = #66a3ff
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
-bar-volume-fill = ─
+bar-volume-fill = - 
 bar-volume-fill-font = 2
-bar-volume-empty = ─
+bar-volume-empty = - 
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
 [module/battery]
 type = internal/battery
-battery = BAT1
+battery = BAT0
 adapter = ADP1
-full-at = 97
+full-at = 98
 
 format-full = <label-full>
 format-full-background = ${colors.background}
@@ -595,11 +622,11 @@ format-label-discharging-background = ${colors.background}
 label-discharging-background = ${colors.background}
 
 label-full =  %percentage%
-label-charging =  %percentage%
+label-charging =  %percentage%
 label-discharging = %percentage%
 
 ;format-full-charing = ""
-format-full-prefix = " "
+format-full-prefix = " "
 ;format-full-prefix-foreground = #00FF00
 format-full-underline = ${self.format-charging-underline}
 
@@ -629,9 +656,11 @@ animation-discharging-framerate = 750
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 75
+warn-temperature = 70
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input
 
 format = <label>
+format-prefix = "%{T3}%{T-} "
 ;format-underline = #f50a4d
 format-warn = <label-warn>
 ;format-warn-underline = ${self.format-underline}
@@ -641,6 +670,8 @@ label-background = ${colors.background}
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 label-warn-background = ${colors.background}
+
+format-prefix-background = ${colors.background}
 
 ramp-0 = 
 ramp-1 = 
