@@ -28,13 +28,20 @@ set tabstop=2
 set sts=0
 set laststatus=2
 set shiftwidth=4
+set completeopt-=preview
+
+"---colors---"
+"set t_Co=256
+"set t_AB=^[[48;5;%dm
+"set t_AF=^[[38;5;%dm
+
+"if exists('+termguicolors') && ($TERM == "st-256color" || $TERM == "tmux-256color")
+"	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"	set termguicolors
+"endif
 
 let mapleader = ","
-
-"---C^ in insert mode toogle on Ru/En---"
-set keymap=russian-jcukenwin
-set iminsert=0
-set imsearch=0
 
 "mapping
 nnoremap j gj
