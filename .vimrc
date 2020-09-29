@@ -8,11 +8,15 @@ Plug 'digitaltoad/vim-pug'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'qpkorr/vim-bufkill'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 
 "javascript
 Plug 'pangloss/vim-javascript'
+
+"git
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -29,6 +33,21 @@ set sts=0
 set laststatus=2
 set shiftwidth=4
 set completeopt-=preview
+set updatetime=100
+highlight VertSplit cterm=none gui=none 
+
+"gitgutter
+highlight SignColumn guibg=whatever ctermbg=15
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+set signcolumn=yes
+let g:gitgutter_sign_added = ''
+let g:gitgutter_sign_modified = ''
+let g:gitgutter_sign_removed = ''
+let g:gitgutter_sign_removed_first_line = '^^'
+let g:gitgutter_sign_removed_above_and_below = '{'
+let g:gitgutter_sign_modified_removed = 'ww'
 
 "---colors---"
 "set t_Co=256
@@ -43,7 +62,14 @@ set completeopt-=preview
 
 let mapleader = ","
 
-"mapping
+"|----------------------------------------------------------|
+"| ███    ███  █████  ██████  ██████  ██ ███    ██  ██████  |
+"| ████  ████ ██   ██ ██   ██ ██   ██ ██ ████   ██ ██       |
+"| ██ ████ ██ ███████ ██████  ██████  ██ ██ ██  ██ ██   ███ |
+"| ██  ██  ██ ██   ██ ██      ██      ██ ██  ██ ██ ██    ██ |
+"| ██      ██ ██   ██ ██      ██      ██ ██   ████  ██████  |
+"|----------------------------------------------------------|
+
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
@@ -69,8 +95,11 @@ nmap - <C-W>-
 nmap . <C-W>>
 nmap , <C-W><
 
+"buffer
+nmap <M-w> :BD<CR>
+
 nnoremap <Leader>t :Files<CR>
-nnoremap ; :Buffers<CR>
+nnoremap ' :Buffers<CR>
 
 "emmet
 let g:user_emmet_leader_key='<c-e>'
