@@ -6,26 +6,28 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-!Xcursor.theme: Amiga-Classic-Red
-Xcursor.theme: El_Capitan_CursorsMODNew
+Xcursor.theme: Amiga-Classic-Red
+!Xcursor.theme: El_Capitan_CursorsMODNew
 
 !URxvt.font:	xft:GohuFont:size=14
 !URxvt.font:	xft: PxPlus ToshibaSat 8x14:size=14
-URxvt.font: xft: FantasqueSansMono Nerd Font Mono:size=13
+!URxvt.font: xft: FantasqueSansMono Nerd Font Mono:size=13
+URxvt.font: xft: Fairfax:size=14
+!URxvt.font: xft: TerminessTTF Nerd Font Mono:size=14
 !URxvt.font:	xft: PxPlus Tandy1K\\-II 200L\\-2y:size=12
 
 URxvt.depth:                      32
-URxvt.background:                 [100]#f2f2f2
+!URxvt.background:                 [100]#f2f2f2
 !URxvt.background:                 [100]#e6e6e6
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
 !URxvt*foreground:                 #45373C
-URxvt*foreground:                 #073642
+!URxvt*foreground:                 #073642
 URxvt*saveLines:                  5000
 URxvt*cursorColor:                #8f8a8d
 !URxvt*fading:                     30
-!URxvt*fadeColor:                  #E1D8D8
+!URxvt*fadeColor:                  #e6e6e6
 
 ! Normal copy-paste keybindings without perls
 URxvt.iso14755:                   false
@@ -288,6 +290,8 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 !*color15:#3c3836
 
 ! Mono
+*.foreground:   #010000
+*.background:   #d9d9d9
 !black
 *color0:    #292b2e
 *color8:    #212026
@@ -305,10 +309,69 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 *color12:   #a45bad
 !magenta
 *color5:    #373040
-*color13:   #b2b2b2
+!*color13:   #b2b2b2
+*color13:   #999999
 !cyan
 *color6:    #bc6ec5
-*color14:   #b2b2b2
+!*color14:   #b2b2b2
+*color14:   #999999
 !white
 *color7:    #AFAFD7
 *color15:   #d5e7f6
+
+! 90~s
+!! special
+!*.foreground:   #010000
+!*.background:   #e6e6e6
+!*.cursorColor:  #010000
+!
+!! black
+!*.color0:       #8a8a8a
+!*.color8:       #8a8a8a
+!
+!! red
+!*.color1:       #de0071
+!*.color9:       #de0071
+!
+!! green
+!*.color2:       #28a78a
+!*.color10:      #28a78a
+!
+!! yellow
+!*.color3:       #2e3192
+!*.color11:      #2e3192
+!
+!! blue
+!*.color4:       #504c9c
+!*.color12:      #504c9c
+!
+!! magenta
+!*.color5:       #04abed
+!*.color13:      #04abed
+!
+!! cyan
+!*.color6:       #3d9dba
+!*.color14:      #3d9dba
+!
+!! white
+!*.color7:       #010000
+!*.color15:      #010000
+
+!*.foreground:   #010000
+!*.background:   #e6e6e6
+!*color0:  #525252
+!*color1:  #a54242
+!*color2:  #8c9440
+!*color3:  #de935f
+!*color4:  #5f819d
+!*color5:  #85678f
+!*color6:  #5e8d87
+!*color7:  #707880
+!*color8:  #707070
+!*color9:  #cc6666
+!*color10: #b5bd68
+!*color11: #f0c674
+!*color12: #81a2be
+!*color13: #b294bb
+!*color14: #8abeb7
+!*color15: #F5F5EB

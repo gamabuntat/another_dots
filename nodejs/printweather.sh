@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/zsh
 
-node ~/nodejs/weather.js >> /dev/null &
+node ~/nodejs/weather.js
 cat ~/nodejs/txt

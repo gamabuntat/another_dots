@@ -15,6 +15,9 @@ Plug 'qpkorr/vim-bufkill'
 "javascript
 Plug 'pangloss/vim-javascript'
 
+"Pug
+Plug 'digitaltoad/vim-pug'
+
 "git
 Plug 'airblade/vim-gitgutter'
 
@@ -42,12 +45,12 @@ highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 set signcolumn=yes
-let g:gitgutter_sign_added = ''
-let g:gitgutter_sign_modified = ''
-let g:gitgutter_sign_removed = ''
-let g:gitgutter_sign_removed_first_line = '^^'
-let g:gitgutter_sign_removed_above_and_below = '{'
-let g:gitgutter_sign_modified_removed = 'ww'
+"let g:gitgutter_sign_added = ''
+"let g:gitgutter_sign_modified = ''
+"let g:gitgutter_sign_removed = ''
+"let g:gitgutter_sign_removed_first_line = '^^'
+"let g:gitgutter_sign_removed_above_and_below = '{'
+"let g:gitgutter_sign_modified_removed = 'ww'
 
 "---colors---"
 "set t_Co=256
@@ -102,7 +105,9 @@ nnoremap <Leader>t :Files<CR>
 nnoremap ' :Buffers<CR>
 
 "emmet
-let g:user_emmet_leader_key='<c-e>'
+let g:user_emmet_leader_key='<C-e>'
+"let g:user_emmet_install_global = 0
+"autocmd FileType html,css,pug,sass EmmetInstall
 
 "irline
 let g:airline_theme='bubblegum'

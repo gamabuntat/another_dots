@@ -2,13 +2,13 @@ const http = require('http');
 const fs = require('fs');
 
 let weather = {
-  Clouds: "",
-  Clear: '盛',
-  Rain: '',
-  Thunderstorm: '',
-  Fog: '',
-  Mist: '',
-
+    Clouds: "",
+    Clear: '盛',
+    Rain: '',
+    Thunderstorm: '',
+    Fog: '',
+    Mist: '',
+    Snow: 'ﰕ',
 }
 
 let output;
@@ -26,7 +26,7 @@ http.get(`http://api.openweathermap.org/data/2.5/weather?id=2023469&appid=${appi
 
     let json = JSON.parse(data);
     if (!json.main.temp) return;
-    let temp = json.main.temp - 273.15;
+    let temp = Math.round(json.main.temp - 273);
     if (temp > 0) temp = "+" + temp;
     let w = weather[json.weather[0].main];
     output = `${w} ${temp}°`;
