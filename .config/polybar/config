@@ -18,28 +18,22 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-;background = #050505
-background = #d9d9d9
-background-center = #d5e7f6
+;background = #292B2E
+;background = #d9d9d9
+;background = #d9d9d9
+background = #C1E7F4
+background-center = #C1E7F4
 ;background = #bbbbbb
 ;background-alt = #C2B6A1
 background-alt = #616161
 ;foreground = ${xrdb:color7:#222}
-;foreground = #f0f0f0
+;foreground = #d5e7f6
+foreground-center = #60656c
 foreground = #073642
 foreground-alt = #7E8584
 primary = #EAC06E
 secondary = #be100e
 alert = #C95F5F
-green =   #B3E1D8D8
-blue =    #B3E1D8D8
-red =     #B3E1D8D8
-yellow =  #B3E1D8D8
-magenta = #B3E1D8D8
-cyan =    #B3E1D8D8
-greenw =  #B3E1D8D8
-bluew =   #B3E1D8D8
-black =   #B3E1D8D8
 
 [bar/example]
 enable-ipc = true
@@ -71,7 +65,8 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = TerminessTTF Nerd Font Mono:size=13;2
+font-0 = Monaco:size=11;2
+;font-0 = TerminessTTF Nerd Font Mono:size=13;2
 ;font-0 = FantasqueSansMono Nerd Font Mono:size=13;2
 ;font-0 = PxPlus ToshibaSat 8x14:size=14;2
 ;font-0 = ibm3270:size=14;2
@@ -84,7 +79,7 @@ font-4 = Hack NF:size=18:weight=bold;5
 modules-left = left0 temperature left0 filesystem left0 cpu left0 battery left0 [alsa] xbacklight left0 crypto left0 weather left0 xkeyboard i3
 modules-center = xwindow
 ;modules-right = spotify-prev spotify-play-pause spotify-next spotify
-modules-right = tmr right1 date
+modules-right = tmr date
 
 tray-position = left
 tray-padding = 10
@@ -108,9 +103,11 @@ cursor-scroll = ns-resize
 
 [module/tmr]
 type = custom/ipc
-format-prefix = "%{T2} %{T-}"
-hook-0 = echo "0m0s"
+format-prefix = "%{T2}  %{T-}"
+hook-0 = echo "0m0s "
 hook-1 = cat ~/myscripts/tmr/timer
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
 initial = 1
 
 [module/ethermine]
@@ -124,7 +121,7 @@ format-prefix-foreground = #009933
 type = custom/script
 interval = 60
 exec = /home/gamabunta/.config/polybar/scripts/ticker-crypto.sh
-format-prefix = "%{T6}%{T-} "
+format-prefix = "%{T6}[%{T-} "
 format-background = ${colors.background}
 
 [module/weather]
@@ -169,109 +166,54 @@ content-font = 2
 label-padding = 0
 content-margin-right = 2
 
+[module/left1]
+type = custom/text
+content-background = ${colors.background}
+;content-foreground = ${colors.background-center}
+content = "["
+;content-font = 2
+label-padding = 0
+;content-margin-right = 2
+
 [module/right1]
 type = custom/text
-content-background = ${colors.background-center}
-content-foreground = ${colors.background-center}
-content = ""
-content-font = 2
+content-background = ${colors.background}
+;content-foreground = ${colors.background-center}
+content = "]"
+;content-font = 2
 label-padding = 0
-content-margin-right = 2
+;content-margin-right = 2
+
+[module/left2]
+type = custom/text
+content-background = ${colors.background-center}
+;content-foreground = ${colors.background-center}
+content = "["
+;content-font = 2
+label-padding = 0
+;content-margin-right = 2
 
 [module/right2]
 type = custom/text
-content-background = ${colors.green}
-content-foreground = ${colors.blue}
-content = ""
-content-font = 2
+content-background = ${colors.background-center}
+;content-foreground = ${colors.background-center}
+content = "]"
+;content-font = 2
 label-padding = 0
-content-margin-right = 2
+;content-margin-right = 2
 
-[module/right3]
-type = custom/text
-content-background = ${colors.blue}
-content-foreground = ${colors.red}
-content = ""
-content-font = 2
-label-padding = 0
-content-margin-right = 2
-
-[module/right4]
-type = custom/text
-content-background = ${colors.red}
-content-foreground = ${colors.yellow}
-content = ""
-content-font = 2
-label-padding = 0
-content-margin-right = 2
-
-[module/right5]
-type = custom/text
-content-background = ${colors.yellow}
-content-foreground = ${colors.magenta}
-content = ""
-content-font = 2
-label-padding = 0
-content-margin-right = 2
-
-[module/right6]
-type = custom/text
-content-background = ${colors.cyan}
-content-foreground = ${colors.magenta}
-content = ""
-content-font = 2
-label-padding = 0
-content-margin-right = 2
-
-[module/right7]
-type = custom/text
-content-background = ${colors.greenw}
-content-foreground = ${colors.cyan}
-content = ""
-content-font = 2
-label-padding = 0
-content-margin-right = 2
-
-[module/right8]
-type = custom/text
-content-background = ${colors.bluew}
-content-foreground = ${colors.greenw}
-content = ""
-content-font = 2
-label-padding = 0
-content-margin-right = 2
-
-[module/right9]
-type = custom/text
-content-background = ${colors.bluew}
-content-foreground = ${colors.bluew}
-content = ""
-content-font = 2
-label-padding = 0
-content-margin-right = 2
-
-[module/right10]
-type = custom/text
-content-background = ${colors.black}
-content-foreground = ${colors.bluew}
-content = ""
-content-font = 2
-label-padding = 0
-content-margin-right = 2
-
-[module/right0]
+[module/lsep]
 type = custom/text
 content-background = ${colors.background}
-content-foreground = ${colors.bluew}
-content = "%{T4}▓▒░%{T-}"
-content-font = 2
-label-padding = 0
-content-margin-right = 2
+content-foreground = ${colors.foreground}
+content-font = 6
+content = "░▒▓"
 
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:40:...%
 ;label-background = #fff
+label-foreground = ${colors.foreground-center}
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -485,7 +427,7 @@ time-alt =
 
 format-prefix =   
 format-prefix-foreground = ${colors.background}
-format-prefix-background = ${colors.bluew}
+;format-prefix-background = ${colors.bluew}
 ;format-underline = #0a6cf5
 
 label = %date%%time%
@@ -630,9 +572,9 @@ label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 label-warn-background = ${colors.background}
 
-ramp-0 = " " 
-ramp-1 = " " 
-ramp-2 = " " 
+ramp-0 = %{T3} %{T-}  
+ramp-1 = %{T3} %{T-}  
+ramp-2 = %{T3} %{T-}  
 ramp-foreground = ${colors.foreground}
 ramp-background = ${colors.background}
 

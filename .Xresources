@@ -12,16 +12,18 @@ Xcursor.theme: Amiga-Classic-Red
 !URxvt.font:	xft:GohuFont:size=14
 !URxvt.font:	xft: PxPlus ToshibaSat 8x14:size=14
 !URxvt.font: xft: FantasqueSansMono Nerd Font Mono:size=13
-URxvt.font: xft: Fairfax:size=14
-!URxvt.font: xft: TerminessTTF Nerd Font Mono:size=14
+!URxvt.font: xft: Fairfax:size=14
+URxvt.font: xft: Monaco:size=12
+!URxvt.font: xft: TerminessTTF Nerd Font Mono:size=13
 !URxvt.font:	xft: PxPlus Tandy1K\\-II 200L\\-2y:size=12
 
+URxvt.letterSpace: -1
 URxvt.depth:                      32
 !URxvt.background:                 [100]#f2f2f2
 !URxvt.background:                 [100]#e6e6e6
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
-URxvt*cursorBlink:                true
+URxvt*cursorBlink:                false
 !URxvt*foreground:                 #45373C
 !URxvt*foreground:                 #073642
 URxvt*saveLines:                  5000
@@ -78,70 +80,39 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 
 
 ! solorized
+!*.foreground:   #d5e7f6
+!*.background:   #262626
 !! black
-!*.color0: #2c3240
-!*.color8: #3b4356
+!*.color0: #262626
+!*.color8: #1c1c1c
 !
 !! red
-!*.color1: #C50F1F
-!*.color9: #af4b57
+!*.color1: #d70000
+!*.color9: #d75f00
 !
 !! green
-!*.color2: #92b279
-!*.color10:#92b279
+!*.color2: #5f8700
+!*.color10:#585858
 !
 !! yellow
-!*.color3:  #C19C00
-!*.color11: #e5c078
+!*.color3:  #af8700
+!*.color11: #626262
 !
 !! blue
-!*.color4:  #6e8fb3
-!*.color12: #6e8fb3
+!*.color4:  #0087ff
+!*.color12: #808080
 !
 !! magenta
-!*.color5:  #881798
-!*.color13: #a3799d
+!*.color5:  #af005f
+!*.color13: #5f5faf
 !
 !! cyan
-!*.color6: #76b3c5
-!*.color14:#7daeac
+!*.color6: #00afaf
+!*.color14:#8a8a8a
 !
 !! white
-!*.color7:  #CCCCCC
-!*.color15: #e7eaf1
-
-! solorized
-!! black
-!*.color0: #073642
-!*.color8: #002b36
-!
-!! red
-!*.color1: #dc322f
-!*.color9: #cb4b16
-!
-!! green
-!*.color2: #859900
-!*.color10:#586e75
-!
-!! yellow
-!*.color3:  #b58900
-!*.color11: #657b83
-!
-!! blue
-!*.color4:  #268bd2
-!*.color12: #839496
-!
-!! magenta
-!*.color5:  #d33682
-!*.color13: #6c71c4
-!
-!! cyan
-!*.color6: #2aa198
-!*.color14:#93a1a1
-!
-!! white
-!*.color7:  #cccccc
-!*.color15: #e6e6e6
+!*.color7:  #e4e4e4
+!*.color15: #ffffd7
 
 ! Light
 !*.background: #fafafa
@@ -289,35 +260,65 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 !*color14:#427b58
 !*color15:#3c3836
 
-! Mono
-*.foreground:   #010000
-*.background:   #d9d9d9
-!black
-*color0:    #292b2e
-*color8:    #212026
-!red
-*color1:    #ce537a
-*color9:    #827591
-!green
-*color2:    #2d9574
-*color10:   #68727c
-!yellow
-*color3:    #7590db
-*color11:   #AFAFD7
-!blue
-*color4:    #2aa1ae
-*color12:   #a45bad
-!magenta
-*color5:    #373040
-!*color13:   #b2b2b2
-*color13:   #999999
-!cyan
-*color6:    #bc6ec5
-!*color14:   #b2b2b2
-*color14:   #999999
-!white
-*color7:    #AFAFD7
-*color15:   #d5e7f6
+! Spacemacs light
+!*.foreground:   #010000
+!*.background:   #d9d9d9
+!!black
+!*color0:    #292b2e
+!*color8:    #212026
+!!red
+!*color1:    #ce537a
+!*color9:    #827591
+!!green
+!*color2:    #2d9574
+!*color10:   #68727c
+!!yellow
+!*color3:    #7590db
+!*color11:   #AFAFD7
+!!blue
+!*color4:    #2aa1ae
+!*color12:   #a45bad
+!!magenta
+!*color5:    #373040
+!!*color13:   #b2b2b2
+!*color13:   #999999
+!!cyan
+!*color6:    #bc6ec5
+!!*color14:   #b2b2b2
+!*color14:   #999999
+!!white
+!*color7:    #AFAFD7
+!*color15:   #d5e7f6
+
+! Spacemacs dark
+!*.foreground:   #d5e7f6
+!*.background:   #292B2E
+!!black
+!*color0:    #292b2e
+!*color8:    #60656c
+!!red
+!*color1:    #ce537a
+!*color9:    #827591
+!!green
+!*color2:    #2d9574
+!*color10:   #464d53
+!!yellow
+!*color3:    #7590db
+!*color11:   #AFAFD7
+!!blue
+!*color4:    #2aa1ae
+!*color12:   #a45bad
+!!magenta
+!*color5:    #645874
+!!*color13:   #b2b2b2
+!*color13:   #999999
+!!cyan
+!*color6:    #bc6ec5
+!!*color14:   #b2b2b2
+!*color14:   #999999
+!!white
+!*color7:    #AFAFD7
+!*color15:   #d5e7f6
 
 ! 90~s
 !! special
@@ -375,3 +376,71 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 !*color13: #b294bb
 !*color14: #8abeb7
 !*color15: #F5F5EB
+
+!Type
+#define black    #080808
+#define bblack   #464646
+
+#define red      #626262
+#define bred     #626262
+
+#define yellow   #B2B2B2
+#define byellow  #B2B2B2
+
+#define green    #868686
+#define bgreen   #009900
+
+#define blue    #00BAFF
+#define bblue   #767676
+
+#define magenta  #E41D91
+#define bmagenta #FF00AF
+
+#define cyan     #949494
+#define bcyan    #949494
+
+#define white    #eeeeee
+#define bwhite   #ffffff
+
+#define fg       #464646
+
+*.foreground:     fg
+!ifdef background_opacity
+!*.background:     [background_opacity]white
+!else
+*.background:     white
+!endif
+*.cursorColor:    #528BFF
+*.underlineColor: yellow
+
+! Black
+*.color0:         black
+*.color8:         bblack
+
+! Red
+*.color1:         red
+*.color9:         bred
+
+! Yellow
+*.color3:         yellow
+*.color11:        byellow
+
+! Green
+*.color2:         green
+*.color10:        bgreen
+
+! Blue
+*.color4:         blue
+*.color12:        bblue
+
+! Magenta
+*.color5:         magenta
+*.color13:        bmagenta
+
+! Cyan
+*.color6:         cyan
+*.color14:        bcyan
+
+! White
+*.color7:         white
+*.color15:        bwhite

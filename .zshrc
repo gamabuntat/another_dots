@@ -9,6 +9,7 @@ export ZSH="/home/gamabunta/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="zhann"
+export TYPEWRITTEN_CURSOR="block"
 export TYPEWRITTEN_SYMBOL=">"
 ZSH_THEME="typewritten"
 
