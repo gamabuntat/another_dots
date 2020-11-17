@@ -11,7 +11,9 @@ export ZSH="/home/gamabunta/.oh-my-zsh"
 #ZSH_THEME="zhann"
 export TYPEWRITTEN_CURSOR="block"
 export TYPEWRITTEN_SYMBOL=">"
+export TYPEWRITTEN_GIT_RELATIVE_PATH=false
 ZSH_THEME="typewritten"
+#ZSH_THEME="theunraveler"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -80,7 +82,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 export PATH=/usr/local/lib/nodejs/node-v14.7.0-linux-x64/bin:$PATH
 export PATH=/home/gamabunta/neofetch:$PATH
-export PATH=/home/gamabunta/myscripts/tmr:$PATH
+export PATH=/home/gamabunta/myscripts/:$PATH
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -110,6 +112,11 @@ alias fsd="cd ~/fsd-step-2"
 alias school="cd ~/Documents/school"
 alias npxw="npx webpack"
 alias t="trans :ru"
+alias mux='pgrep -vx tmux > /dev/null && \
+		tmux new -d -s delete-me && \
+		tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && \
+		tmux kill-session -t delete-me && \
+		tmux attach || tmux attach'
 
 #----- GIT -----#
 alias gs='git status '

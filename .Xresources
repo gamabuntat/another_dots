@@ -6,30 +6,24 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-Xcursor.theme: Amiga-Classic-Red
-!Xcursor.theme: El_Capitan_CursorsMODNew
+!Xcursor.theme: Amiga-Classic-Red
+Xcursor.theme: El_Capitan_CursorsMODNew
 
-!URxvt.font:	xft:GohuFont:size=14
-!URxvt.font:	xft: PxPlus ToshibaSat 8x14:size=14
-!URxvt.font: xft: FantasqueSansMono Nerd Font Mono:size=13
-!URxvt.font: xft: Fairfax:size=14
 URxvt.font: xft: Monaco:size=12
 !URxvt.font: xft: TerminessTTF Nerd Font Mono:size=13
-!URxvt.font:	xft: PxPlus Tandy1K\\-II 200L\\-2y:size=12
 
-URxvt.letterSpace: -1
+!URxvt.letterSpace: -1
 URxvt.depth:                      32
-!URxvt.background:                 [100]#f2f2f2
-!URxvt.background:                 [100]#e6e6e6
+!*.foreground:                     #000000
+!*.background:                     #d6d6d6
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                false
-!URxvt*foreground:                 #45373C
-!URxvt*foreground:                 #073642
 URxvt*saveLines:                  5000
-URxvt*cursorColor:                #8f8a8d
-!URxvt*fading:                     30
-!URxvt*fadeColor:                  #e6e6e6
+!URxvt*cursorColor:                #8f8a8d
+!URxvt*fading:                     50
+!URxvt*fadeColor:                  #657b83
+URxvt*transparent:                false
 
 ! Normal copy-paste keybindings without perls
 URxvt.iso14755:                   false
@@ -78,47 +72,9 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 !*.color7:  #968C83
 !*.color15: #968C83
 
-
-! solorized
-!*.foreground:   #d5e7f6
-!*.background:   #262626
-!! black
-!*.color0: #262626
-!*.color8: #1c1c1c
-!
-!! red
-!*.color1: #d70000
-!*.color9: #d75f00
-!
-!! green
-!*.color2: #5f8700
-!*.color10:#585858
-!
-!! yellow
-!*.color3:  #af8700
-!*.color11: #626262
-!
-!! blue
-!*.color4:  #0087ff
-!*.color12: #808080
-!
-!! magenta
-!*.color5:  #af005f
-!*.color13: #5f5faf
-!
-!! cyan
-!*.color6: #00afaf
-!*.color14:#8a8a8a
-!
-!! white
-!*.color7:  #e4e4e4
-!*.color15: #ffffd7
-
 ! Light
 !*.background: #fafafa
 !*.foreground: #383a42
-!*.cursor: #f0f0f0
-
 !*.color0: #383a42
 !*.color1: #e45649
 !*.color2: #50a14f
@@ -139,7 +95,6 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 ! dark
 !*.background: #282c34
 !*.foreground: #50F148
-!
 !*.color0: #282c34
 !*.color1: #e06c75
 !*.color2: #98c379
@@ -161,35 +116,27 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 !*.foreground:   #f0f0f0
 !*.background:   #050505
 !*.cursorColor:  #f0f0f0
-!
 !! black
 !*.color0:       #050505
 !*.color8:       #4d4d4d
-!
 !! red
 !*.color1:       #AC8A8C
 !*.color9:       #C49EA0
-!
 !! green
 !*.color2:       #8AAC8B
 !*.color10:      #9EC49F
-!
 !! yellow
 !*.color3:       #ACA98A
 !*.color11:      #C4C19E
-!
 !! blue
 !*.color4:       #8F8AAC
 !*.color12:      #A39EC4
-!
 !! magenta
 !*.color5:       #AC8AAC
 !*.color13:      #C49EC4
-!
 !! cyan
 !*.color6:       #8AABAC
 !*.color14:      #9EC3C4
-!
 !! white
 !*.color7:       #f0f0f0
 !*.color15:      #fafafa
@@ -405,11 +352,7 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 #define fg       #464646
 
 *.foreground:     fg
-!ifdef background_opacity
-!*.background:     [background_opacity]white
-!else
 *.background:     white
-!endif
 *.cursorColor:    #528BFF
 *.underlineColor: yellow
 
@@ -444,3 +387,211 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 ! White
 *.color7:         white
 *.color15:        bwhite
+
+!-------------------------- Typewriter light --------------------------
+! Scheme: Typewriter (https://github.com/logico-dev)
+
+!#define black    #EEEEEE
+!#define bblack   #FFFFFF
+!
+!#define red      #DBDBDB
+!#define bred     #DBDBDB
+!
+!#define yellow   #5A5A5A
+!#define byellow  #5A5A5A
+!
+!! Color 49
+!#define green    #646464
+!#define bgreen   #00FFAF
+!
+!#define blue     #00BAFF
+!#define bblue    #767676
+!
+!#define magenta  #E41D91
+!! Color 199
+!#define bmagenta #FF00AF
+!
+!#define cyan     #949494
+!#define bcyan    #949494
+!
+!#define white    #262626
+!#define bwhite   #4C4C4C
+!
+!#define fg       #EFEFEF
+!
+!*.foreground:     fg
+!#ifdef background_opacity
+!*.background:     [background_opacity]white
+!#else
+!*.background:     white
+!#endif
+!*.cursorColor:    #528BFF
+!*.underlineColor: yellow
+!
+!! Black
+!*.color0:         black
+!*.color8:         bblack
+!
+!! Red
+!*.color1:         red
+!*.color9:         bred
+!
+!! Yellow
+!*.color3:         yellow
+!*.color11:        byellow
+!
+!! Green
+!*.color2:         green
+!*.color10:        bgreen
+!
+!! Blue
+!*.color4:         blue
+!*.color12:        bblue
+!
+!! Magenta
+!*.color5:         magenta
+!*.color13:        bmagenta
+!
+!! Cyan
+!*.color6:         cyan
+!*.color14:        bcyan
+!
+!! White
+!*.color7:         white
+!*.color15:        bwhite
+
+!--felipec---
+!*.foreground:     #efefef
+!*.background:     #404040
+!*.cursorColor:    #528BFF
+!!! Black
+!*.color0:         #404040
+!*.color8:         #808080
+!! Red
+!*.color1:         #ff8080
+!*.color9:         #ff8080
+!! Yellow
+!*.color3:         #ffff80
+!*.color11:        #ffff80
+!! Green
+!*.color2:         #80ff80
+!*.color10:        #80ff80
+!! Blue
+!*.color4:         #8080ff
+!*.color12:        #8080ff
+!! Magenta
+!*.color5:         #ff80ff
+!*.color13:        #ff80ff
+!! Cyan
+!*.color6:         #80ffff
+!*.color14:        #80ffff
+!! White
+!*.color7:         #bfbfbf
+!*.color15:        #efefef
+
+!--------PaperColor---------
+!*.foreground:     #444444
+!*.background:     #eeeeee
+!*.cursorColor:    #528BFF
+!! Black
+!*.color0:         #181818
+!*.color8:         #444444
+!! Red
+!*.color1:         #AB4642
+!*.color9:         #AB4642
+!! Yellow
+!*.color3:         #F7CA88
+!*.color11:        #F7CA88
+!!Green
+!*.color2:         #A1B56C
+!*.color10:        #A1B56C
+!! Blue
+!*.color4:         #7CAFC2
+!*.color12:        #7CAFC2
+!! Magenta
+!*.color5:         #BA8BAF
+!*.color13:        #BA8BAF
+!! Cyan
+!*.color6:         #86C1B9
+!*.color14:        #86C1B9
+!! White
+!*.color7:         #D8D8D8
+!*.color15:        #eeeeee
+
+!--------solaneo---------
+!! Black
+!*.color0:         #073642
+!*.color8:         #1185a2
+!! Red
+!*.color1:         #dc322f
+!*.color9:         #cb4b16
+!! Yellow
+!*.color3:         #b58900
+!*.color11:        #657b83
+!!Green
+!*.color2:         #719e07
+!*.color10:        #586e75
+!! Blue
+!*.color4:         #268bd2
+!*.color12:        #839496
+!! Magenta
+!*.color5:         #d33682
+!*.color13:        #6c71c4
+!! Cyan
+!*.color6:         #2aa198
+!*.color14:        #93a1a1
+!! White
+!*.color7:         #eee8d5
+!*.color15:        #fdf6e3
+
+!--------envy---------
+!! Black
+!*.color0:         #000000
+!*.color8:         #585858
+!! Red
+!*.color1:         #af0000
+!*.color9:         #af0000
+!! Yellow
+!*.color3:         #d75f00
+!*.color11:        #d75f00
+!!Green
+!*.color2:         #005f00
+!*.color10:        #005f00
+!! Blue
+!*.color4:         #005fd7
+!*.color12:        #005fd7
+!! Magenta
+!*.color5:         #5f00ff
+!*.color13:        #5f00ff
+!! Cyan
+!*.color6:         #0087af
+!*.color14:        #0087af
+!! White
+!*.color7:         #b2b2b2
+!*.color15:        #eeeeee
+
+!--------envy---------
+!! Black
+!*.color0:         #000000
+!*.color8:         #585858
+!! Red
+!*.color1:         #7f0000
+!*.color9:         #7f0000
+!! Yellow
+!*.color3:         #cc6600
+!*.color11:        #cc6600
+!!Green
+!*.color2:         #007a00
+!*.color10:        #007a00
+!! Blue
+!*.color4:         #00007f
+!*.color12:        #00007f
+!! Magenta
+!*.color5:         #7f007f
+!*.color13:        #7f007f
+!! Cyan
+!*.color6:         #007f7f
+!*.color14:        #007f7f
+!! White
+!*.color7:         #d6d6d6
+!*.color15:        #ffffff

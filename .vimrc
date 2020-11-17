@@ -13,6 +13,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 Plug 'colepeters/spacemacs-theme.vim'
+Plug 'tpope/vim-surround'
 
 "javascript
 Plug 'pangloss/vim-javascript'
@@ -58,7 +59,6 @@ set ttimeoutlen=10
 "---colors---"
 "set t_Co=256
 "set t_AB=^[[48;5;%dm
-"set t_AF=^[[38;5;%dm
 
 "if exists('+termguicolors') && ($TERM == "st-256color" || $TERM == "tmux-256color")
 "	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -66,35 +66,39 @@ set ttimeoutlen=10
 "	set termguicolors
 "endif
 
-" Enable true color 启用终端24位色
+
+"Enable true color 启用终端24位色
 "if exists('+termguicolors')
 "  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 "  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "  set termguicolors
 "endif
-
-
 "if (has("termguicolors"))
 "    set termguicolors
 "endif
+set t_8f=^[[38;2;%lu;%lu;%lum
+set t_8b=^[[48;2;%lu;%lu;%lum
 "set termguicolors
-"set background=light
 "colorscheme default
 "colorscheme spacemacs-theme
 colorscheme typewriter
+"let g:neosolarized_contrast = "low"
+set background=light
+
+"hi StatusLine ctermbg=232 ctermfg=255
 "highlight LineNr ctermfg=13
 "highlight Visual ctermbg=10
-highlight CursorLineNR ctermbg=4 ctermfg=0
+"highlight CursorLineNR ctermbg=4 ctermfg=0
 "highlight VertSplit cterm=none gui=none 
 "highlight Todo ctermbg=0 ctermfg=13
 "highlight Pmenu ctermbg=0 ctermfg=13
 
 "gitgutter
-highlight SignColumn guibg=whatever ctermbg=3
-highlight GitGutterAdd    ctermbg=2 ctermfg=2
-highlight GitGutterChange ctermbg=6 ctermfg=6
-highlight GitGutterDelete ctermbg=1 ctermfg=1
-highlight GitGutterAdded  ctermbg=3 ctermfg=15
+highlight SignColumn guibg=whatever ctermbg=7
+"highlight GitGutterAdd    ctermbg=2 ctermfg=2
+"highlight GitGutterChange ctermbg=6 ctermfg=6
+"highlight GitGutterDelete ctermbg=1 ctermfg=1
+"highlight GitGutterAdded  ctermbg=3 ctermfg=15
 set signcolumn=yes
 "let g:gitgutter_sign_added = ''
 "let g:gitgutter_sign_modified = ''

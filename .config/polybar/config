@@ -28,7 +28,7 @@ background-center = #C1E7F4
 background-alt = #616161
 ;foreground = ${xrdb:color7:#222}
 ;foreground = #d5e7f6
-foreground-center = #60656c
+foreground-center = #073642
 foreground = #073642
 foreground-alt = #7E8584
 primary = #EAC06E
@@ -65,8 +65,8 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Monaco:size=11;2
-;font-0 = TerminessTTF Nerd Font Mono:size=13;2
+;font-0 = Monaco:size=11;2
+font-0 = TerminessTTF Nerd Font Mono:size=13;2
 ;font-0 = FantasqueSansMono Nerd Font Mono:size=13;2
 ;font-0 = PxPlus ToshibaSat 8x14:size=14;2
 ;font-0 = ibm3270:size=14;2
@@ -76,10 +76,10 @@ font-2 = Hack NF:size=12:weight=bold;3
 font-3 = Hack NF:size=14:weight=bold;3
 font-4 = Hack NF:size=18:weight=bold;5
 
-modules-left = left0 temperature left0 filesystem left0 cpu left0 battery left0 [alsa] xbacklight left0 crypto left0 weather left0 xkeyboard i3
+modules-left = left0 left1 temperature right1 left0 left1 filesystem right1 left0 left1 cpu right1 left0 left1 battery right1 left0 [alsa] left1 xbacklight right1 left0 left1 crypto right1 left0 left1 weather right1 left0 xkeyboard i3
 modules-center = xwindow
 ;modules-right = spotify-prev spotify-play-pause spotify-next spotify
-modules-right = tmr date
+modules-right = left1 tmr right1 left0 left1 date right1
 
 tray-position = left
 tray-padding = 10
@@ -103,8 +103,8 @@ cursor-scroll = ns-resize
 
 [module/tmr]
 type = custom/ipc
-format-prefix = "%{T2}  %{T-}"
-hook-0 = echo "0m0s "
+format-prefix = "TMR: "
+hook-0 = echo "0m0s"
 hook-1 = cat ~/myscripts/tmr/timer
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
@@ -121,7 +121,7 @@ format-prefix-foreground = #009933
 type = custom/script
 interval = 60
 exec = /home/gamabunta/.config/polybar/scripts/ticker-crypto.sh
-format-prefix = "%{T6}[%{T-} "
+format-prefix = "BTC: "
 format-background = ${colors.background}
 
 [module/weather]
@@ -214,6 +214,9 @@ type = internal/xwindow
 label = %title:0:40:...%
 ;label-background = #fff
 label-foreground = ${colors.foreground-center}
+label-empty =
+label-empty-foreground = #fff
+label-empty-background = #fff
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -240,7 +243,7 @@ interval = 600
 
 mount-0 = /
 
-label-mounted = %{T4}%{T-} %used%
+label-mounted =  MOUNT: %used%
 label-mounted-background = ${colors.background}
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
@@ -278,7 +281,7 @@ wrapping-scroll = false
 pin-workspaces = false
 
 ; focused = Active workspace on focused monitor
-label-focused = %icon%
+label-focused = [x]
 label-focused-background = ${colors.background}
 label-focused-foreground = ${colors.foreground}
 label-focused-underline= 
@@ -297,7 +300,7 @@ label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %icon%
+label-urgent = [x]
 label-urgent-foreground = ${colors.alert}
 label-urgent-background = ${colors.background}
 label-urgent-padding = 1
@@ -309,17 +312,18 @@ fuzzy-match = true
 
 ; ws-icon-[0-9]+ = label;icon
 ; NOTE: The label needs to match the name of the i3 workspace
-ws-icon-0 = 1;%{T9}0001%{T-}
-ws-icon-1 = 2;%{T9}0010%{T-}
-ws-icon-2 = 3;%{T9}0011%{T-}
-ws-icon-3 = 4;%{T9}0100%{T-}
-ws-icon-4 = 5;%{T9}0101%{T-}
-ws-icon-5 = 6;%{T9}0110%{T-}
-ws-icon-6 = 7;%{T9}0111%{T-}
-ws-icon-7 = 8;%{T9}1000%{T-}
-ws-icon-8 = 9;%{T9}1001%{T-}
-ws-icon-9 = 10;
-ws-icon-default = %{T3}ﰊ%{T-}
+;ws-icon-0 = 1;%{T9}0001%{T-}
+;ws-icon-1 = 2;%{T9}0010%{T-}
+;ws-icon-2 = 3;%{T9}0011%{T-}
+;ws-icon-3 = 4;%{T9}0100%{T-}
+;ws-icon-4 = 5;%{T9}0101%{T-}
+;ws-icon-5 = 6;%{T9}0110%{T-}
+;ws-icon-6 = 7;%{T9}0111%{T-}
+;ws-icon-7 = 8;%{T9}1000%{T-}
+;ws-icon-8 = 9;%{T9}1001%{T-}
+;ws-icon-9 = 10;
+;ws-icon-default = %{T3}ﰊ%{T-}
+ws-icon-default = []
 
 [module/mpd]
 type = internal/mpd
@@ -338,7 +342,7 @@ label-song-ellipsis = true
 type = internal/xbacklight
 
 format = <label>
-label = %{T3}%{T-} %percentage%
+label = LIGHT: %percentage%%
 format-background = ${colors.background}
 
 bar-width = 14
@@ -360,11 +364,11 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "%{T2}﬙%{T-} "
+format-prefix = 
 format-prefix-foreground = ${colors.foreground}
 format-prefix-background = ${colors.background}
 ;format-underline = #f90000
-label = %percentage:2%
+label = CPU: %percentage:2%%
 label-background = ${colors.background}
 
 [module/memory]
@@ -420,9 +424,9 @@ type = internal/date
 interval = 1
 
 date =
-date-alt = "  %d-%m-%Y %u %H:%M "
+date-alt = "DATE: %d-%m-%Y %u %H:%M"
 
-time = "  %d-%m-%Y %u %H:%M "
+time = "DATE: %d-%m-%Y %u %H:%M"
 time-alt = 
 
 format-prefix =   
@@ -523,12 +527,12 @@ format-discharging-underline =
 format-label-discharging-background = ${colors.background}
 label-discharging-background = ${colors.background}
 
-label-full =  %percentage%
-label-charging =  %percentage%
-label-discharging = %percentage%
+label-full = %percentage%%
+label-charging = %percentage%%
+label-discharging = %percentage%%
 
 ;format-full-charing = ""
-format-full-prefix = " "
+format-full-prefix = "FULL:"
 ;format-full-prefix-foreground = #00FF00
 format-full-underline = ${self.format-charging-underline}
 
@@ -537,20 +541,20 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ;ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = " "
-animation-charging-1 = " "
-animation-charging-2 = " "
-animation-charging-3 = " "
-animation-charging-4 = " "
+animation-charging-0 = "|     "
+animation-charging-1 = "||    "
+animation-charging-2 = "|||   "
+animation-charging-3 = "||||  "
+animation-charging-4 = "||||| "
 ;animation-charging-foreground = #00FF00
 animation-charging-background = ${colors.background}
 animation-charging-framerate = 750
 
-animation-discharging-0 = " " 
-animation-discharging-1 = " " 
-animation-discharging-2 = " " 
-animation-discharging-3 = " " 
-animation-discharging-4 = " " 
+animation-discharging-0 = "||||| " 
+animation-discharging-1 = "||||  " 
+animation-discharging-2 = "|||   " 
+animation-discharging-3 = "||    " 
+animation-discharging-4 = "|     " 
 ;animation-discharging-foreground = ${colors.secondary}
 animation-discharging-background = ${colors.background}
 animation-discharging-framerate = 750
@@ -561,20 +565,21 @@ thermal-zone = 0
 warn-temperature = 70
 hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input
 
-format = <ramp><label>
+;format = <ramp><label>
+format = <label>
 ;format-underline = #f50a4d
 format-warn = <ramp><label-warn>
 ;format-warn-underline = ${self.format-underline}
 
-label = %temperature-c%
+label = TEMP: %temperature-c%
 label-background = ${colors.background}
-label-warn = %temperature-c%
+label-warn = TEMP: %temperature-c%
 label-warn-foreground = ${colors.secondary}
 label-warn-background = ${colors.background}
 
-ramp-0 = %{T3} %{T-}  
-ramp-1 = %{T3} %{T-}  
-ramp-2 = %{T3} %{T-}  
+ramp-0 = %{T3}%{T-}  
+ramp-1 = %{T3}%{T-}  
+ramp-2 = %{T3}%{T-}  
 ramp-foreground = ${colors.foreground}
 ramp-background = ${colors.background}
 
