@@ -10,6 +10,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'dylanaraps/fff.vim'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 Plug 'colepeters/spacemacs-theme.vim'
@@ -31,7 +32,7 @@ set nobackup
 set nowb
 set noswapfile
 set clipboard^=unnamedplus
-set incsearch 
+set incsearch
 set expandtab
 set sw=2
 set tabstop=2
@@ -41,7 +42,10 @@ set shiftwidth=4
 set completeopt-=preview
 set updatetime=100
 set ttimeoutlen=10
+set hidden
 "set noshowmode
+
+au FileType sass setlocal shiftwidth=2
 
 "set cursorcolumn
 "highlight CursorColumn ctermbg=15
@@ -81,15 +85,15 @@ set t_8b=^[[48;2;%lu;%lu;%lum
 "set termguicolors
 "colorscheme default
 "colorscheme spacemacs-theme
-colorscheme typewriter
+colorscheme fogbell_lite
 "let g:neosolarized_contrast = "low"
-set background=light
+"set background=light
 
-"hi StatusLine ctermbg=232 ctermfg=255
-"highlight LineNr ctermfg=13
+highlight LineNr ctermbg=234
+highlight  NonText ctermfg=234
 "highlight Visual ctermbg=10
-"highlight CursorLineNR ctermbg=4 ctermfg=0
-"highlight VertSplit cterm=none gui=none 
+highlight CursorLineNR ctermbg=234
+highlight VertSplit ctermbg=234 gui=none 
 "highlight Todo ctermbg=0 ctermfg=13
 "highlight Pmenu ctermbg=0 ctermfg=13
 
@@ -99,7 +103,7 @@ highlight SignColumn guibg=whatever ctermbg=7
 "highlight GitGutterChange ctermbg=6 ctermfg=6
 "highlight GitGutterDelete ctermbg=1 ctermfg=1
 "highlight GitGutterAdded  ctermbg=3 ctermfg=15
-set signcolumn=yes
+set signcolumn=no
 "let g:gitgutter_sign_added = ''
 "let g:gitgutter_sign_modified = ''
 "let g:gitgutter_sign_removed = ''
@@ -115,7 +119,7 @@ set signcolumn=yes
 "| ██      ██ ██   ██ ██      ██      ██ ██   ████  ██████  |
 "|----------------------------------------------------------|
 
-let mapleader = ","
+map <Space> <Leader>
 
 nnoremap j gj
 nnoremap k gk
@@ -139,13 +143,13 @@ nmap <C-L> <C-W>l
 nmap = <C-W>=
 nmap + <C-W>+
 nmap - <C-W>-
-nmap . <C-W>>
-nmap , <C-W><
+"nmap > <C-W>>
+"nmap < <C-W><
 
 "buffer
 nmap <M-w> :BD<CR>
 
-nnoremap <Leader>t :Files<CR>
+nnoremap ,t :Files<CR>
 nnoremap ' :Buffers<CR>
 
 "emmet
@@ -157,3 +161,6 @@ let g:user_emmet_leader_key='<C-e>'
 "let g:airline_theme='base16_spacemacs'
 "let g:airline_section_z = airline#section#create(['linenr', ':%3v'])
 "let g:airline#extensions#tabline#enabled = 1
+
+"fzf
+let g:fzf_preview_window = ['right:55%:hidden', 'ctrl-/']

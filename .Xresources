@@ -9,11 +9,14 @@ Xft.lcdfilter: lcddefault
 !Xcursor.theme: Amiga-Classic-Red
 Xcursor.theme: El_Capitan_CursorsMODNew
 
-URxvt.font: xft: Monaco:size=12
+URxvt.font: xft: GohuFont:style=uni-14
+!URxvt.font: xft: Unifont:size=13
+!URxvt.font: xft: Monaco:size=12
 !URxvt.font: xft: TerminessTTF Nerd Font Mono:size=13
 
-!URxvt.letterSpace: -1
+URxvt.letterSpace: -1
 URxvt.depth:                      32
+URxvt.geometry:                    170x50
 !*.foreground:                     #000000
 !*.background:                     #d6d6d6
 URxvt*scrollBar:                  false
@@ -351,8 +354,8 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 
 #define fg       #464646
 
-*.foreground:     fg
-*.background:     white
+!*.foreground:     fg
+!*.background:     white
 *.cursorColor:    #528BFF
 *.underlineColor: yellow
 
@@ -585,6 +588,34 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 !*.color10:        #007a00
 !! Blue
 !*.color4:         #00007f
+!*.color12:        #00007f
+!! Magenta
+!*.color5:         #7f007f
+!*.color13:        #7f007f
+!! Cyan
+!*.color6:         #007f7f
+!*.color14:        #007f7f
+!! White
+!*.color7:         #d6d6d6
+!*.color15:        #ffffff
+
+!--------fogbell---------
+!! Black
+*.foreground:     #D0D0D0
+*.background:     #1C1C1C
+!*.color0:         #1C1C1C
+!*.color8:         #262626
+!! Red
+!*.color1:         #821A1A
+!*.color9:         #FF0000
+!! Yellow
+!*.color3:         #8E700B
+!*.color11:        #cc6600
+!!Green
+!*.color2:         #569F7A
+!*.color10:        #007a00
+!! Blue
+!*.color4:         #699B9B
 !*.color12:        #00007f
 !! Magenta
 !*.color5:         #7f007f
