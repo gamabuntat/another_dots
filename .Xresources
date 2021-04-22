@@ -10,13 +10,12 @@ Xft.lcdfilter: lcddefault
 Xcursor.theme: El_Capitan_CursorsMODNew
 
 URxvt.font: xft: GohuFont:style=uni-14
-!URxvt.font: xft: Unifont:size=13
-!URxvt.font: xft: Monaco:size=12
-!URxvt.font: xft: TerminessTTF Nerd Font Mono:size=13
+!URxvt.font: xft: Unifont:size=12
+!URxvt.font: xft: Monaco:size=11
 
 URxvt.letterSpace: -1
 URxvt.depth:                      32
-URxvt.geometry:                    170x50
+URxvt.geometry:                    166x52
 !*.foreground:                     #000000
 !*.background:                     #d6d6d6
 URxvt*scrollBar:                  false
@@ -334,8 +333,8 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 #define red      #626262
 #define bred     #626262
 
-#define yellow   #B2B2B2
-#define byellow  #B2B2B2
+#define yellow   #999999
+#define byellow  #999999
 
 #define green    #868686
 #define bgreen   #009900
@@ -601,7 +600,7 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 
 !--------fogbell---------
 !! Black
-*.foreground:     #D0D0D0
+*.foreground:     #e6e6e6
 *.background:     #1C1C1C
 !*.color0:         #1C1C1C
 !*.color8:         #262626

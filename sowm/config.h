@@ -3,8 +3,9 @@
 
 #define MOD Mod4Mask
 
-const char* menu[]    = {"dmenu_run", "-fn", "TerminessTTF Nerd Font Mono-13", "-nb", "#b3b3b3", "-sf", "#073642", "-sb", "#C1E7F4", "-nf", "#073642", 0};
+const char* menu[]    = {"dmenu_run", "-fn", "Monaco-11", "-nb", "#1C1C1C", "-sf", "#D0D0D0", "-sb", "#464646", "-nf", "#D0D0D0", 0};
 const char* term[]    = {"urxvt",             0};
+const char* smallTerm[] = {"urxvt", "-geometry", "83x52", 0};
 const char* scrot[]   = {"scr",            0};
 const char* briup[]   = {"xbacklight", "-inc", "10", 0};
 const char* bridown[] = {"xbacklight", "-dec", "10", 0};
@@ -17,6 +18,7 @@ const char* prev[] = {"playerctl", "-p", "spotify", "previous", 0};
 const char* next[] = {"playerctl", "-p", "spotify", "next", 0};
 const char* screen[] = {"gnome-screenshot", 0};
 const char* browser[] = {"chromium", 0};
+const char* restart[] = {"killall", "sowm", 0};
 
 static struct key keys[] = {
     {MOD,      XK_q,   win_kill,   {0}},
@@ -40,6 +42,7 @@ static struct key keys[] = {
     {MOD, XK_w,      run, {.com = colors}},
     {MOD, XK_p,      run, {.com = scrot}},
     {MOD, XK_Return, run, {.com = term}},
+    {MOD|ShiftMask, XK_Return, run, {.com = smallTerm}},
 
     {0,   XF86XK_AudioLowerVolume,  run, {.com = voldown}},
     {0,   XF86XK_AudioRaiseVolume,  run, {.com = volup}},
@@ -63,8 +66,9 @@ static struct key keys[] = {
     {MOD,           XK_6, ws_go,     {.i = 6}},
     {MOD|ShiftMask, XK_6, win_to_ws, {.i = 6}},
 
-    {0, XK_Print,      run, {.com = screen}},
+    {0, XK_Print,    run, {.com = screen}},
     {MOD, XK_b,      run, {.com = browser}},
+    {MOD|ShiftMask, XK_r, run, {.com = restart}},
 };
 
 #endif
